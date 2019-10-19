@@ -37,6 +37,9 @@ export const Content = styled.div`
 
 export const List = styled.div`
   padding: 20px;
+  & a {
+    text-decoration: none;
+  }
 `
 
 export const ListItem = styled.div`
