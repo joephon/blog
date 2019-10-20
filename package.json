@@ -13,6 +13,7 @@
     "react-syntax-highlighter": "^11.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-decorators": "^7.6.0",
     "customize-cra": "^0.8.0",
     "react-app-rewired": "^2.1.3",
