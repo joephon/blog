@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { black1, black2, white1 } from '../common'
+import { black3, black2, black1, white1 } from '../common'
 
 export const NavWrapCircle = styled.div`
   position: fixed;
@@ -17,4 +17,27 @@ export const NavWrapCircle = styled.div`
   &:hover {
     cursor: pointer;
   }
+`
+
+export const Navigator = styled.div`
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  box-shadow: 0px 1px 3px ${black1};
+  background-color: ${black3};
+
+  @media screen and (max-width: 375px) {
+    padding: 0 10px;
+  }
+`
+
+export const NavigatorBack = styled.div`
+  font-size: 18px;
+  line-height: 60px;
+  color: ${white1};
+  cursor: pointer;
 `

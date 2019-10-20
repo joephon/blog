@@ -1,7 +1,10 @@
 import React from 'react'
-import { NavWrapCircle } from './nav.style'
+import { withRouter } from 'react-router-dom'
+import { NavWrapCircle, Navigator, NavigatorBack } from './nav.style'
+import { Wrapper } from './shared.style'
 
-export class NavBar extends React.Component {
+@withRouter
+class NavBar extends React.Component {
 
   renderNavText() {
     if (Math.max(0.5, Math.random()) === 0.5) {
@@ -11,12 +14,26 @@ export class NavBar extends React.Component {
     }
   }
 
+  goBack() {
+    this.props.history.goBack()
+  }
+
   render() {
-    const { trigger } = this.props
-    return(
-      <NavWrapCircle>
-        {this.renderNavText()}
-      </NavWrapCircle>
-    )
+    const { trigger, history } = this.props
+    const { pathname } = history.location
+    return[
+      // <NavWrapCircle key={0}>
+      //   {this.renderNavText()}
+      // </NavWrapCircle>,
+      pathname !== '/' && pathname !== '/articles' && pathname !== ''
+       ? <Navigator key={1}>
+        <Wrapper>
+          <NavigatorBack onClick={this.goBack.bind(this)}>{`<- Back`}</NavigatorBack>
+        </Wrapper>
+      </Navigator>
+       : null
+    ]
   }
 }
+
+export { NavBar }

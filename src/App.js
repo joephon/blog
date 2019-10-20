@@ -11,6 +11,7 @@ class App extends React.Component {
   render() {
     return(
       <Router>
+        <NavBar {...this.state}/>
         <Switch>
           <Route exact path="/">
             <Art {...this.state} />
@@ -25,7 +26,6 @@ class App extends React.Component {
             <div>No Match For <code>{window.location.pathname}</code></div>
           </Route>
         </Switch>
-        <NavBar {...this.state}/>
       </Router>
     )
   }

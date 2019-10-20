@@ -2,11 +2,12 @@ import React from 'react'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import { issues } from '../common'
-import { Wrapper, List, ListItem, ListItemTitle, ListItemExtra } from '../components'
+import { Wrapper, List, ListItem, ListItemTitle, ListItemExtra, Loading, NoData } from '../components'
 
 export class Art extends React.Component {
   state = {
-    list: []
+    list: [],
+    ok: false,
   }
 
   componentDidMount() {
@@ -19,26 +20,34 @@ export class Art extends React.Component {
     })
     if (res.ok) {
       const json = await res.json()
-      this.setState({ list: json })
-      console.log(1111, json)
+      this.setState({ list: json, ok: true })
+    } else {
+      this.setState({ ok: true })
     }
   }
   
   render() {
+    const { list, ok } = this.state
     return(
       <Wrapper>
-        <List>
-          {
-            this.state.list.map((item, index) => {
-              return <Link to={'/articles/' + item.number}>
-                <ListItem key={index}>
-                  <ListItemTitle>{item.title}</ListItemTitle>
-                  <ListItemExtra>{moment(item.updated_at).format('MM/DD/YYYY')}</ListItemExtra>
-                </ListItem>
-              </Link>
-            })
-          }
-        </List>
+        {
+          ok 
+            ? <List>
+              {
+                list.length
+                  ? list.map((item, index) => {
+                    return <Link key={index} to={'/articles/' + item.number}>
+                      <ListItem>
+                        <ListItemTitle>{item.title}</ListItemTitle>
+                        <ListItemExtra>{moment(item.updated_at).format('MM/DD/YYYY')}</ListItemExtra>
+                      </ListItem>
+                    </Link>
+                  })
+                  : <NoData>暂无数据</NoData>
+              }
+            </List>
+            : <Loading>加载中...</Loading>
+        }
       </Wrapper>
     )
   }

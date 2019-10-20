@@ -7,6 +7,45 @@ export const Wrapper = styled.div`
   margin: 0 auto;
 `
 
+export const Box = styled.div`
+  display: flex;
+`
+
+export const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 4px;
+  border-radius: 0 50px 50px 0;
+  background-color: ${black2};
+`
+
+export const HeaderTitle = styled.div`
+  font-size: 22px;
+  font-weight: bold;
+  @media screen and (max-width: 375px) {
+    font-size: 18px;
+  }
+`
+
+export const HeaderSubTitle = styled.div`
+  margin-top: 10px;
+  font-size: 12px;
+  color: ${grey};
+  @media screen and (max-width: 375px) {
+    font-size: 10px;
+  }
+`
+
+export const Avatar = styled.img`
+  display: block;
+  width: 60px!important;
+  height: 60px!important;
+  border-radius: 50%;
+  margin-left: 20px;
+`
 export const Content = styled.div`
   box-sizing: border-box;
   padding: 20px;
@@ -22,6 +61,9 @@ export const Content = styled.div`
     padding: 10px;
     overflow-x: scroll;
     background-color: ${black1};
+  }
+  & a:visited {
+    color: ${white1};
   }
   @media screen and (max-width: 375px) {
     padding: 10px;
@@ -47,6 +89,8 @@ export const ListItem = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  height: 38px;
   margin-bottom: 10px;
   padding: 10px;
   background-color: ${black2};
@@ -61,6 +105,22 @@ export const ListItemTitle = styled.div`
 `
 
 export const ListItemExtra = styled.div`
+  margin-left: 10px;
   font-size: 12px;
+  color: ${grey};
+`
+
+export const NoData = styled.div`
+  margin: 4px 0;
+  padding: 40px;
+  text-align: center;
+  color: ${grey};
+  background-color: ${black2};
+`
+
+export const Loading = styled.div`
+  width: 100%;
+  padding: 20px;
+  text-align: center;
   color: ${grey};
 `
