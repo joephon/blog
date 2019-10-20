@@ -62,7 +62,7 @@ export const Content = styled.div`
     overflow-x: scroll;
     background-color: ${black1};
   }
-  & a:visited {
+  & a:visited, a:link {
     color: ${white1};
   }
   @media screen and (max-width: 375px) {
@@ -90,7 +90,6 @@ export const ListItem = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  height: 38px;
   margin-bottom: 10px;
   padding: 10px;
   background-color: ${black2};
@@ -100,7 +99,7 @@ export const ListItem = styled.div`
 `
 
 export const ListItemTitle = styled.div`
-  font-size: 18px;
+  font-size: 16px;
   color: ${white1};
 `
 
