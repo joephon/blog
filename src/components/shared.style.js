@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { black1, black2, white1, grey } from '../common'
+import { black1, black2, black3, white1, grey } from '../common'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -9,6 +9,57 @@ export const Wrapper = styled.div`
 
 export const Box = styled.div`
   display: flex;
+`
+
+export const Center = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+`
+
+export const Root = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const SiderBar = styled.div`
+  margin-right: 10px;
+`
+
+export const Content = styled.div`
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: ${black2};
+  & img {
+    border-radius: 20px;
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+  }
+  & pre {
+    border-radius: 5px;
+    padding: 10px;
+    overflow-x: scroll;
+    background-color: ${black1};
+  }
+  & a:visited, a:link {
+    color: ${white1};
+  }
+  @media screen and (max-width: 375px) {
+    padding: 10px;
+    font-size: 12px;
+    & pre {
+      border-radius: 3px;
+      padding: 5px;
+      overflow-x: scroll;
+      background-color: ${black1};
+    }
+  }
 `
 
 export const Header = styled.div`
@@ -45,36 +96,6 @@ export const Avatar = styled.img`
   height: 60px!important;
   border-radius: 50%;
   margin-left: 20px;
-`
-export const Content = styled.div`
-  box-sizing: border-box;
-  padding: 20px;
-  background-color: ${black2};
-  & img {
-    border-radius: 20px;
-    display: block;
-    margin: 20px auto;
-    max-width: 100%;
-  }
-  & pre {
-    border-radius: 5px;
-    padding: 10px;
-    overflow-x: scroll;
-    background-color: ${black1};
-  }
-  & a:visited, a:link {
-    color: ${white1};
-  }
-  @media screen and (max-width: 375px) {
-    padding: 10px;
-    font-size: 12px;
-    & pre {
-      border-radius: 3px;
-      padding: 5px;
-      overflow-x: scroll;
-      background-color: ${black1};
-    }
-  }
 `
 
 export const List = styled.div`
@@ -122,4 +143,19 @@ export const Loading = styled.div`
   padding: 20px;
   text-align: center;
   color: ${grey};
+`
+
+export const Label = styled.div`
+  padding: 10px;
+  margin: 6px;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: ${black3};
+
+  cursor: pointer;
+
+  overflow: hidden;      /*溢出隐藏*/
+  white-space: nowrap;	/*规定文本不进行换行*/
+  text-overflow: ellipsis;
 `

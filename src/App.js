@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Art, ArtDetail } from './pages'
+import { Art, ArtDetail, Home } from './pages'
 import { NavBar } from './components'
+import 'animate.css'
 
 class App extends React.Component {
   state = {
@@ -14,7 +15,7 @@ class App extends React.Component {
         <NavBar {...this.state}/>
         <Switch>
           <Route exact path="/">
-            <Art {...this.state} />
+            <Home {...this.state} />
           </Route>
           <Route exact path="/articles">
             <Art {...this.state} />

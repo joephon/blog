@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.21",
     "@emotion/styled": "^10.0.17",
+    "animate.css": "^3.7.2",
     "moment": "^2.24.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
