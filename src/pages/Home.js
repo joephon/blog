@@ -17,6 +17,7 @@ class Home extends React.Component {
     selected: 0,
     labelsClass: 'zoomInDown',
     navLabelsClass: 'lightSpeedIn',
+    clickClass: 'rubberBand'
   }
 
   componentDidMount() {
@@ -75,11 +76,12 @@ class Home extends React.Component {
   onSelect(key) {
     const { labels } = this.state
     const label = labels[key].name
+    this.setState({ selected: key })
     this.getIssues(label)
   }
 
   render() {
-    const { labels, ok, forkLabels, labelsClass, navLabelsClass, step, list, selected } = this.state
+    const { labels, ok, forkLabels, labelsClass, navLabelsClass, clickClass, step, list, selected } = this.state
     return(
       <Wrapper>
         {
@@ -102,7 +104,7 @@ class Home extends React.Component {
                     ok 
                       ? labels.length
                         ? labels.map((item, index) => {
-                          return <Label key={index} style={{color: `#${item.color}`, padding: '5px', margin: '2px', fontSize: '14px', width: selected === index ? '70px' : '60px'}} className={`animated ${navLabelsClass}`} onClick={this.onSelect.bind(this, index)}>{item.name}</Label>
+                          return <Label key={index} style={{color: `#${item.color}`, padding: '5px', margin: '2px', fontSize: '14px', width: selected === index ? '70px' : '60px'}} className={`animated ${navLabelsClass} ${selected === index ? clickClass : ''}`} onClick={this.onSelect.bind(this, index)}>{item.name}</Label>
                         })
                         : <NoData>暂无数据</NoData>
                       : <Loading>首页加载中...</Loading>
